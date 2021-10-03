@@ -1,4 +1,5 @@
 export const GACHI_STICKERS = {
-  unizhen: '',
-  idiNahui: '',
+  unizhen: 'CAACAgIAAxkBAAM7YVl8gWtrPcPzEb10ldrGr9zPBJQAAjIAA17RLBSwpyh9kY826CEE',
+  idiNahui: 'CAACAgIAAxkBAAM5YVl8IiZLldLEMOhKNAYpMArqC_QAAgcAA17RLBS-Aj6il9uMliEE',
+  govori: 'CAACAgIAAxkBAAM9YVl8m7bGLEQ6Blnnsf1rkw8rlwoAAkYAA17RLBRb06EVc4Z6UyEE'
 }

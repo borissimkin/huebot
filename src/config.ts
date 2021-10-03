@@ -1,5 +1,5 @@
 export const config = {
-  jonisTelegramId: '',
-  jorisTelegramId: '',
-  jubanTelegramId: '',
+  jonisTelegramId: 916376960,
+  jorisTelegramId: 417339010,
+  jubanTelegramId: 589615539,
 }

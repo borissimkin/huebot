@@ -3,15 +3,18 @@ import * as dotenv from 'dotenv'
 dotenv.config({ path: `${__dirname}/../.env` })
 import { bot } from '@/helpers/bot'
 import { actionWithBotTyping } from '@/helpers/actionWithBotTyping'
+import { leaveFromChat } from '@/handlers/leaveFromChat'
+import { connectToChat } from '@/handlers/connectToChat'
 /**
- * - обработать лив из чата
- * - обработать вход в чат (можно на жониса отдельно)
+ * - обработать лив из чата - DONE
+ * - обработать вход в чат (можно на жониса отдельно) - DONE
  * - если больше двух человек скинули стикеры кота, то тоже скинуть стикер кота
  * - обращение к боту = преобразование слова к "хуй ... " + добавить ключевые слова (например, если жорис - то отправить кота приемлимо)
  *  - (добавить очень редкое преобразование к рандомным сообщениям)
  * - на стикер "ты еблан?" отправлять "докажи" или "внатуре" можно по рандому
  * - на стикер dance жабы отправить dance жабу
  * - при обращении к боту в воскресенье отправлять стикер у меня выходной)
+ * - на слово говори - отправить стикер ГОВОРИ!
  * **/
 
 /**
@@ -24,6 +27,10 @@ import { actionWithBotTyping } from '@/helpers/actionWithBotTyping'
 /**
  * На эмодзи казино, кубика, дартса, баскетбола кидать иногда тоже его
  * **/
+
+bot.on('left_chat_member', (ctx) => leaveFromChat(ctx, ctx.message.left_chat_member))
+
+bot.on('new_chat_members', (ctx) => connectToChat(ctx, ctx.message.new_chat_members))
 
 bot.command('quit', (ctx) => {
     // Explicit usage
