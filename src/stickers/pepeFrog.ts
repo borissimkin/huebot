@@ -1,0 +1,3 @@
+export const PERE_FROG_STICKERS = {
+  dance: 'CAACAgIAAxkBAAMiYVlxiTwq3k-rCN7_ZhyMP2fmW2AAAjQAA-W5CBrOMD78F70qtSEE'
+}

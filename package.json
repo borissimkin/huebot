@@ -1,0 +1,27 @@
+{
+  "name": "huebot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.2.4",
+    "typescript": "^4.4.3",
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "telegraf": "^4.4.2",
+    "dotenv": "^10.0.0",
+    "module-alias": "^2.2.2"
+  },
+  "scripts": {
+    "distribute": "yarn build-ts && node dist/app.js",
+    "develop": "concurrently -k -i -p \"[{name}]\" -n \"Node,TypeScript\" -c \"yellow.bold,cyan.bold\" \"yarn watch-js\" \"yarn watch-ts\"",
+    "build-ts": "tsc --skipLibCheck",
+    "watch-ts": "tsc -w --skipLibCheck",
+    "watch-js": "nodemon dist/app.js"
+  },
+  "_moduleAliases": {
+    "@": "dist"
+  }
+}

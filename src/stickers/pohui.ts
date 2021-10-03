@@ -1,0 +1,5 @@
+export const POHUI_STICKERS = {
+  vashePohui: 'CAACAgIAAxkBAAMkYVl0WKnPcNsVV99g4OSQwhwiq44AAqAAA5E5nByPWEHLP_PhOSEE',
+  vashePohuiWithCloud: 'CAACAgIAAxkBAAMmYVl0fu-hmJN82T9tAg9S_Itfx6EAAocAA5E5nBxn1ELxOdU1myEE',
+  pohuiSpiderMan: 'CAACAgIAAxkBAAMqYVl0oVWrW1NVnU8XrnrW-GpyQYYAApYAA5E5nBzbcXX5m_8-9yEE'
+}
