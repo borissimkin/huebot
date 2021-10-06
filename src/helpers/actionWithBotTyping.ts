@@ -1,7 +1,11 @@
 import { Context } from 'telegraf'
 
-export const actionWithBotTyping = (ctx: Context, callback: () => void, timeout = 500) => {
-  ctx.replyWithChatAction('typing').then(() => {
-    setTimeout(callback, timeout)
+export const actionWithBotTyping = (ctx: Context, timeout = 500) => {
+  return ctx.replyWithChatAction('typing').then(() => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(ctx)
+      }, timeout)
+    })
   })
 }
