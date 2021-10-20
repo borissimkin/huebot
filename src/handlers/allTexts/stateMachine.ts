@@ -94,5 +94,13 @@ export const stateMachine: State[] = [
   {
     statement: /^унижен[.!]?$/i,
     handler: (ctx: Context) => ctx.replyWithSticker(GACHI_STICKERS.unizhen)
+  },
+  {
+    statement: /межрежтинж|межрейтинж|медрейтинж|медгейтинж|межгейтинг|межгейтинж|/i,
+    handler: (ctx: Context) => ctx.replyWithSticker(CAT_STICKERS.tutb)
+  },
+  {
+    statement: /медрейтинг/i,
+    handler: (ctx: Context) => ctx.replyWithSticker(OTHER_STICKERS.importDjango)
   }
 ]
