@@ -7,6 +7,7 @@ import { CAT_STICKERS } from '@/stickers/cats'
 import { actionWithBotTyping } from '@/helpers/actionWithBotTyping'
 import { appealToUserUstrica } from '@/helpers/appealToUserUstrica'
 import { OTHER_STICKERS } from '@/stickers/other'
+import { sendBiletVKK } from '@/handlers/allTexts/sendBiletVKK'
 
 type State = {
   statement: RegExp,
@@ -47,6 +48,10 @@ export const stateMachine: State[] = [
         ctx.replyWithSticker(GACHI_STICKERS.govori)
       }
     }
+  },
+  {
+    statement: /билетик в кк/i,
+    handler: sendBiletVKK
   },
   {
     statement: /^кк$/i,
@@ -102,5 +107,5 @@ export const stateMachine: State[] = [
   {
     statement: /медрейтинг/i,
     handler: (ctx: Context) => ctx.replyWithSticker(OTHER_STICKERS.importDjango)
-  }
+  },
 ]

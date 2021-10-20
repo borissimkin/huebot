@@ -6,9 +6,6 @@ import { leaveFromChat } from '@/handlers/leaveFromChat'
 import { connectToChat } from '@/handlers/connectToChat'
 import { allTextsHandler } from '@/handlers/allTexts'
 
-/**
- *  - (добавить очень редкое преобразование к рандомным сообщениям)
- * **/
 
 bot.on('left_chat_member', (ctx) => leaveFromChat(ctx, ctx.message.left_chat_member))
 
