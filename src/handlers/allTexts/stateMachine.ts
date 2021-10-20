@@ -101,7 +101,7 @@ export const stateMachine: State[] = [
     handler: (ctx: Context) => ctx.replyWithSticker(GACHI_STICKERS.unizhen)
   },
   {
-    statement: /межрежтинж|межрейтинж|медрейтинж|медгейтинж|межгейтинг|межгейтинж|/i,
+    statement: /межрежтинж|межрейтинж|медрейтинж|медгейтинж|межгейтинг|межгейтинж/i,
     handler: (ctx: Context) => ctx.replyWithSticker(CAT_STICKERS.tutb)
   },
   {
