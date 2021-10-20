@@ -7,6 +7,6 @@ export const getRandomSticker = (stickerPack: Object) => {
 
 
 
-const getRandomInt = (max: number) => {
+export const getRandomInt = (max: number) => {
   return Math.floor(Math.random() * max);
 }

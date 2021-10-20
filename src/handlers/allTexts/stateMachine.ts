@@ -43,7 +43,7 @@ export const stateMachine: State[] = [
   {
     statement: /говори|скажи/i,
     handler: (ctx: Context) => {
-      if (isHitToStatistics(0.3)) {
+      if (isHitToStatistics(0.5)) {
         ctx.replyWithSticker(GACHI_STICKERS.govori)
       }
     }

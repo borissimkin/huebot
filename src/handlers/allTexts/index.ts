@@ -8,10 +8,18 @@ import { stateMachine } from '@/handlers/allTexts/stateMachine'
 import { isHitToStatistics } from '@/helpers/isHitToStatistics'
 import { removeBotNameFromText } from '@/helpers/removeBotNameFromText'
 import { GACHI_STICKERS } from '@/stickers/gachimuchi'
+import { randomWordHandler } from '@/handlers/allTexts/randomWordHandler'
+import { OTHER_STICKERS } from '@/stickers/other'
+import { getRandomInt } from '@/helpers/getRandomSticker'
 
 const isSunday = () => {
   return new Date().getDay() === 0
 }
+
+const someStickersAppealToBot = [
+  OTHER_STICKERS.sukaAgainYou,
+  OTHER_STICKERS.shaUebu
+]
 
 const runStateMachine = (ctx: Context, text: string) => {
   for (const state of stateMachine) {
@@ -28,22 +36,31 @@ export const allTextsHandler = async (ctx: Context, text: string) => {
     return handlerAddressingBotText(ctx, text)
   }
   const stateMachineWasUsed = runStateMachine(ctx, text)
-  if (!stateMachineWasUsed) {
-    if (isHitToStatistics(0.1)) {
-      await actionWithBotTyping(ctx, 300)
-      ctx.reply(processLineToHuiWords(text), {reply_to_message_id: ctx.message.message_id})
-    }
+  if (stateMachineWasUsed) {
+    return
   }
+  randomWordHandler(ctx, text)
 }
 
 const handlerAddressingBotText = (ctx: Context, text: string) => {
-  if (/жорис|жоримс/i.test(text)) {
+  if (/жорис|жоримс|борис|жорим/i.test(text)) {
     return ctx.replyWithSticker(getCatPriemlimo())
   }
+
   if (isSunday()) {
     return ctx.replyWithSticker(CAT_STICKERS.weekend)
   }
+
+  if (isHitToStatistics(0.1)) {
+    ctx.replyWithSticker(
+      someStickersAppealToBot[getRandomInt(someStickersAppealToBot.length)],
+      {reply_to_message_id: ctx.message.message_id}
+    )
+    return
+  }
+
   const clearedText = removeBotNameFromText(ctx.botInfo.username, text)
+
   if (!clearedText.replace(' ', '')) {
     return ctx.replyWithSticker(GACHI_STICKERS.oshibsaDveriu)
   }
